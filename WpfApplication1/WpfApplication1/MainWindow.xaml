@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="WPFtest" Height="350" Width="525">
+    <!-- This is how you set up the binding for easy use! -->
+    <Window.Resources>
+        <local:WPFtestViewModel x:Key="custviewmodel"/>
+    </Window.Resources>
+
+    <!-- Dont Forget that you can use the UI to do bindings as well-->
+    <Grid>
+        <TextBox Name="textBoxTest" Text="{Binding SampleText, Source={StaticResource custviewmodel}}"  Margin="10,246,10.4,56.8" />
+        <Button Name="buttonTest" Content="Test" Margin="403,283,10.4,9.8" Command="{Binding BtnClick, Mode=OneWay, Source={StaticResource custviewmodel}}" />
+    </Grid>
+</Window>
